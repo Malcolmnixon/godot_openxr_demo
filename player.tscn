@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cpj7vtj6gr3tv"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_d31c7"]
+[ext_resource type="Script" path="res://Player.cs" id="1_sy16p"]
 [ext_resource type="PackedScene" uid="uid://bbvciliw3xnf6" path="res://objects/black_out.tscn" id="2_ecfc5"]
-[ext_resource type="Script" path="res://xr_action.gd" id="3_fnypk"]
+[ext_resource type="Script" path="res://XRAction.cs" id="3_ok1r1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xe2ly"]
 
@@ -13,7 +13,7 @@ size = Vector3(0.05, 0.05, 0.05)
 radius = 0.05
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
-script = ExtResource("1_d31c7")
+script = ExtResource("1_sy16p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -64,8 +64,8 @@ sync_to_physics = false
 shape = SubResource("SphereShape3D_n2icl")
 
 [node name="MovementAction" type="Node" parent="."]
-script = ExtResource("3_fnypk")
-type = 2
-action = "move"
+script = ExtResource("3_ok1r1")
+Type = 2
+Action = "move"
 
-[connection signal="input_vector2_changed" from="MovementAction" to="." method="_on_movement_changed"]
+[connection signal="InputVector2Changed" from="MovementAction" to="." method="OnMovementChanged"]

@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://gvmfk4owutdm"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_jn1yk"]
+[ext_resource type="Script" path="res://Main.cs" id="1_lxcng"]
 [ext_resource type="PackedScene" uid="uid://cpj7vtj6gr3tv" path="res://player.tscn" id="2_igeja"]
 [ext_resource type="PackedScene" uid="uid://bymbq2ruecbhn" path="res://world.tscn" id="2_m075s"]
 [ext_resource type="PackedScene" uid="uid://ceu5eprch2vn6" path="res://objects/gpu_time.tscn" id="4_1brq4"]
 [ext_resource type="PackedScene" uid="uid://bmy80xrnnry4j" path="res://objects/button.tscn" id="4_npiue"]
 
 [node name="Main" type="Node3D"]
-script = ExtResource("1_jn1yk")
-maximum_refresh_rate = 120
+script = ExtResource("1_lxcng")
+MaximumRefreshRate = 120
 
 [node name="World" parent="." instance=ExtResource("2_m075s")]
 
@@ -43,7 +43,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42626, 0)
 text = "Quit
 "
 
-[connection signal="pose_recentered" from="." to="Player" method="recenter"]
-[connection signal="button_toggled" from="GlowButton" to="." method="_on_glow_button_button_toggled"]
-[connection signal="button_toggled" from="MSAAButton" to="." method="_on_msaa_button_button_toggled"]
-[connection signal="button_toggled" from="QuitButton" to="." method="_on_quit_button_button_toggled"]
+[connection signal="PoseRecentered" from="." to="Player" method="recenter"]
+[connection signal="ButtonToggled" from="GlowButton" to="." method="OnGlowButtonButtonToggled"]
+[connection signal="ButtonToggled" from="MSAAButton" to="." method="OnMsaaButtonButtonToggled"]
+[connection signal="ButtonToggled" from="QuitButton" to="." method="OnQuitButtonButtonToggled"]

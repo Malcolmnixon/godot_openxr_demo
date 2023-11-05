@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bmy80xrnnry4j"]
 
-[ext_resource type="Script" path="res://objects/button.gd" id="1_x3rua"]
+[ext_resource type="Script" path="res://objects/XRButton.cs" id="1_ggc85"]
 [ext_resource type="Texture2D" uid="uid://rek0t7kubpx4" path="res://assets/pattern.png" id="2_ybdqv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02u0d"]
@@ -38,7 +38,7 @@ emission_energy_multiplier = 16.0
 radius = 0.172756
 
 [node name="Button" type="Node3D"]
-script = ExtResource("1_x3rua")
+script = ExtResource("1_ggc85")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -74,6 +74,6 @@ shape = SubResource("SphereShape3D_8wjcy")
 wait_time = 0.3
 one_shot = true
 
-[connection signal="body_entered" from="HandDetector" to="." method="_on_hand_detector_body_entered"]
-[connection signal="body_exited" from="HandDetector" to="." method="_on_hand_detector_body_exited"]
-[connection signal="timeout" from="Timeout" to="." method="_on_timeout_timeout"]
+[connection signal="body_entered" from="HandDetector" to="." method="OnHandDetectorBodyEntered"]
+[connection signal="body_exited" from="HandDetector" to="." method="OnHandDetectorBodyExited"]
+[connection signal="timeout" from="Timeout" to="." method="OnTimeoutTimeout"]
