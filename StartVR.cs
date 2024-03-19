@@ -37,6 +37,12 @@ public partial class StartVR : Node3D
             // Make sure v-sync is off, v-sync is handled by OpenXR
             DisplayServer.WindowSetVsyncMode(DisplayServer.VSyncMode.Disabled);
 
+            // Enable VRS
+            if (RenderingServer.GetRenderingDevice() != null)
+                vp.VrsMode = Viewport.VrsModeEnum.XR;
+            else if ((int)ProjectSettings.GetSetting("xr/openxr/foveation_level") == 0)
+                GD.PushWarning("OpenXR: Recommend setting Foveation level to High in Project Settings");
+
             // Connect the OpenXR events
             _xrInterface.SessionBegun += OnOpenXRSessionBegun;
             _xrInterface.SessionVisible += OnOpenXRVisibleState;
